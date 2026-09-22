@@ -1,10 +1,10 @@
 :root {
-  --case-ink: #181916;
-  --case-paper: #f4f1e9;
-  --case-muted: #60635a;
-  --case-line: rgba(24,25,22,.15);
+  --case-ink: #3f2a39;
+  --case-paper: #fff9fb;
+  --case-muted: #735f6b;
+  --case-line: rgba(82,52,70,.16);
   --case-accent: #d8ff64;
-  --case-dark: #181916;
+  --case-dark: #4a3143;
   --sans: "Avenir Next", "Segoe UI", Inter, Helvetica, Arial, sans-serif;
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
 }
@@ -136,4 +136,73 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+
+/* Portfolio-owner polish — 2026-09 */
+body {
+  background:
+    radial-gradient(circle at 9% 7%, rgba(242,190,211,.28), transparent 25rem),
+    radial-gradient(circle at 91% 14%, rgba(218,207,241,.38), transparent 28rem),
+    linear-gradient(180deg, #fffafd 0%, var(--case-paper) 58%, #fffdfd 100%);
+}
+
+.portfolio-bar {
+  position: sticky;
+  top: 0;
+  padding-inline: clamp(.7rem, 1.4vw, 1.2rem);
+  background: rgba(255,249,251,.9);
+  border: 1px solid rgba(91,59,79,.12);
+  border-top: 0;
+  border-radius: 0 0 1.1rem 1.1rem;
+  box-shadow: 0 10px 32px rgba(91,59,79,.07);
+  backdrop-filter: blur(16px);
+}
+
+.portfolio-brand span {
+  background: linear-gradient(135deg, #4f3248, #906985);
+  border-radius: .75rem;
+  box-shadow: 0 7px 20px rgba(79,50,72,.18);
+}
+
+.project-switcher select {
+  background-color: rgba(255,255,255,.76);
+  border-color: rgba(105,69,92,.2);
+  border-radius: 999px;
+}
+
+.prototype-hero h1 em,
+.case-intro h2 em { text-shadow: 0 10px 30px rgba(111,72,97,.08); }
+
+.prototype-stage-wrap {
+  box-shadow: 0 44px 110px rgba(95,62,83,.17);
+}
+
+.case-study {
+  position: relative;
+}
+
+.process-grid article {
+  background: rgba(255,255,255,.36);
+}
+
+.validation {
+  background:
+    radial-gradient(circle at 88% 22%, rgba(227,163,192,.2), transparent 20rem),
+    linear-gradient(145deg, #412b3b, #59384f);
+  box-shadow: 0 26px 70px rgba(84,54,73,.16);
+}
+
+.next-project {
+  border-color: rgba(93,61,81,.17);
+}
+.next-project:hover {
+  color: #8f5879;
+  background: rgba(247,222,233,.34);
+}
+
+.case-footer a:hover { color: #9c6383; }
+
+@media (max-width: 700px) {
+  .portfolio-bar { width: calc(100% - 1rem); }
 }
