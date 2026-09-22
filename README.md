@@ -20,5 +20,8 @@ UI/UX design, dashboard design, interaction design, responsive layouts, visual h
 - Production (Vercel): https://sachibuendia.vercel.app/
 - GitHub Pages mirror: https://sachibara0516.github.io/sachibuendia.github.io/
 
+## Deployment
+Pushes to `main` automatically deploy to Vercel. GitHub Pages remains available as a mirror.
+
 ## Portfolio source
 The profile content was based on Meco Buendia's CV, while intentionally leaving private street-address, phone, and reference-contact details off the public website.
