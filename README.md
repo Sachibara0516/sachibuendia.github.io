@@ -18,15 +18,18 @@ A responsive, interaction-rich portfolio presenting Meco Buendia’s full profes
    Information architecture, responsive product UI, task flows, focus design, collaboration, and prototyping.
 
 3. **CarePath — accessible healthcare booking**  
-   https://sachibuendia.vercel.app/projects/carepath/  
+   Repository: https://github.com/Sachibara0516/CarePath  
+   https://sachibara0516.github.io/CarePath/  
    Accessibility, service design, inclusive forms, content design, progressive disclosure, and mobile-first decision making.
 
 4. **FinWell — financial wellness dashboard**  
-   https://sachibuendia.vercel.app/projects/finwell/  
+   Repository: https://github.com/Sachibara0516/FinWell  
+   https://sachibara0516.github.io/FinWell/  
    Behavioral design, trust patterns, plain-language UX, privacy controls, scenario planning, and data storytelling.
 
 5. **Resolve — IT service-desk workflow**  
-   https://sachibuendia.vercel.app/projects/resolve/  
+   Repository: https://github.com/Sachibara0516/Resolve  
+   https://sachibara0516.github.io/Resolve/  
    Service blueprints, ticket intake, operational workflows, search and filtering, state management, and usability heuristics.
 
 Each project is a complete, independently accessible web experience with its own direct URL, interactive interface, responsive states, and UX case-study content. Portfolio cards open these sites in a separate browser tab.\n\n## Portfolio coverage
