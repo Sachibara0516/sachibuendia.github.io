@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PyreWall is Meco Buendia's interactive cybersecurity command-center prototype." />
+  <meta name="theme-color" content="#0b120f" />
+  <title>PyreWall — Live UI/UX Prototype by Meco Buendia</title>
+  <link rel="stylesheet" href="../project.css" />
+  <style>
+    :root { --case-accent:#caff63; --hero-em:#427a61; --stage-frame:#08100c; --browser-text:#9cab9f; }
+    .prototype-stage { color:#e9f1e9; background:#0b120f; }
+    .pyre-app { display:grid; grid-template-columns:230px 1fr; min-height:inherit; background:#0b120f; }
+    .pyre-side { display:flex; flex-direction:column; min-width:0; padding:1.25rem; background:#101a15; border-right:1px solid #25352b; }
+    .pyre-logo { display:flex; align-items:center; gap:.7rem; min-height:42px; margin-bottom:2.3rem; color:#f3f8f2; font-weight:900; font-size:.83rem; letter-spacing:.02em; }
+    .pyre-logo i { position:relative; display:grid; width:34px; height:34px; place-items:center; background:#caff63; border-radius:.55rem; }
+    .pyre-logo i::before { width:13px; height:16px; content:""; border:2px solid #122018; border-radius:8px 8px 5px 5px; clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%); }
+    .pyre-logo span { color:#caff63; }
+    .pyre-side small { margin:0 0 .7rem .65rem; color:#67766c; font-size:.58rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .pyre-nav { display:grid; gap:.32rem; }
+    .pyre-nav button { display:flex; align-items:center; gap:.8rem; width:100%; min-height:44px; padding:.6rem .7rem; color:#89988e; background:transparent; border:1px solid transparent; border-radius:.55rem; cursor:pointer; text-align:left; font-size:.7rem; font-weight:750; }
+    .pyre-nav button b { display:grid; width:24px; height:24px; place-items:center; color:#708078; border:1px solid #33463b; border-radius:.4rem; font-size:.62rem; }
+    .pyre-nav button:hover { color:#ecf3ec; background:#17231d; }
+    .pyre-nav button.active { color:#ecf3ec; background:#1b2821; border-color:#30453a; }
+    .pyre-nav button.active b { color:#142017; background:#caff63; border-color:#caff63; }
+    .system-card { margin-top:auto; padding:.9rem; background:#0c1510; border:1px solid #293a30; border-radius:.65rem; }
+    .system-card div { display:flex; align-items:center; gap:.5rem; color:#cbd7cc; font-size:.65rem; font-weight:800; }
+    .system-card div i { width:7px; height:7px; background:#7cdb91; border-radius:50%; box-shadow:0 0 0 4px rgba(124,219,145,.08); }
+    .system-card p { margin:.65rem 0 0; color:#6e7d73; font-size:.58rem; line-height:1.5; }
+    .pyre-main { min-width:0; padding:1.6rem clamp(1.2rem,2.6vw,2.8rem) 2.2rem; }
+    .pyre-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .pyre-top p { margin:0 0 .2rem; color:#708078; font-size:.56rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    .pyre-top h2 { margin:0; font-size:clamp(1.5rem,2.7vw,2.65rem); line-height:1; letter-spacing:-.055em; }
+    .top-actions { display:flex; align-items:center; gap:.55rem; }
+    .icon-action,.primary-action { min-height:38px; color:#aebbb0; background:#152119; border:1px solid #31443a; border-radius:.48rem; cursor:pointer; font-size:.64rem; font-weight:800; }
+    .icon-action { width:38px; }
+    .primary-action { padding:.55rem .8rem; color:#142017; background:#caff63; border-color:#caff63; }
+    .primary-action:hover { background:#e3ffab; }
+    .pyre-status { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; margin:1.8rem 0 .8rem; padding:.7rem .85rem; color:#849288; background:#101a15; border:1px solid #25372d; border-radius:.58rem; font-size:.62rem; }
+    .pyre-status strong { display:flex; align-items:center; gap:.5rem; margin-right:auto; color:#cce9d3; }
+    .pyre-status strong::before { width:7px; height:7px; content:""; background:#7ddd91; border-radius:50%; box-shadow:0 0 0 5px rgba(125,221,145,.07); }
+    .pyre-status span { padding-left:.75rem; border-left:1px solid #2e3f35; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:.7rem; }
+    .metric { position:relative; min-height:126px; overflow:hidden; padding:1rem; background:#111c16; border:1px solid #293a30; border-radius:.65rem; }
+    .metric small { color:#728078; font-size:.58rem; font-weight:700; }
+    .metric strong { display:block; margin:.55rem 0 .3rem; color:#f1f6f0; font-size:1.65rem; line-height:1; letter-spacing:-.06em; }
+    .metric > span { color:#83c995; font-size:.55rem; }
+    .metric svg { position:absolute; right:.8rem; bottom:.7rem; width:56px; height:32px; fill:none; stroke:#caff63; stroke-width:2; opacity:.75; }
+    .metric:nth-child(2) svg { stroke:#ff846c; }.metric:nth-child(3) svg{stroke:#73a9ff}.metric:nth-child(4) svg{stroke:#d19aff}
+    .dashboard-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(260px,.65fr); gap:.7rem; margin-top:.7rem; }
+    .panel { background:#111c16; border:1px solid #293a30; border-radius:.65rem; }
+    .traffic-panel { min-height:305px; padding:1rem; }
+    .panel-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .panel-head h3 { margin:0; font-size:.74rem; }
+    .range { display:flex; padding:.18rem; background:#0b130e; border:1px solid #26372d; border-radius:.38rem; }
+    .range button { min-width:34px; padding:.3rem .38rem; color:#6e7e73; background:transparent; border:0; border-radius:.27rem; cursor:pointer; font-size:.53rem; font-weight:800; }
+    .range button.active { color:#172218; background:#caff63; }
+    .chart-wrap { position:relative; height:215px; margin-top:1.1rem; }
+    .chart-labels { position:absolute; inset:0; display:grid; align-content:space-between; color:#536159; font-size:.48rem; }
+    .chart-labels span { border-top:1px solid #24332a; }
+    .traffic-chart { position:relative; z-index:1; width:100%; height:100%; overflow:visible; }
+    .area { fill:rgba(202,255,99,.06); }.line{fill:none;stroke:#caff63;stroke-width:3;stroke-linecap:round}.point{fill:#0f1913;stroke:#caff63;stroke-width:3}
+    .threat-panel { min-height:305px; padding:1rem; }
+    .risk-score { position:relative;display:grid; width:122px; height:122px; margin:1.25rem auto 1rem; place-items:center; background:conic-gradient(#7ddd91 0 82%,#26372d 82%); border-radius:50%; }
+    .risk-score::before { width:91px; height:91px; content:""; background:#111c16; border-radius:50%; }
+    .risk-score div { position:absolute; text-align:center; }.risk-score strong{display:block;font-size:1.7rem;letter-spacing:-.06em}.risk-score small{color:#77867c;font-size:.5rem}
+    .risk-breakdown { display:grid; gap:.6rem; }
+    .risk-breakdown p { display:flex; justify-content:space-between; margin:0; color:#78867d; font-size:.57rem; }
+    .risk-breakdown b { color:#dfe7df; }
+    .events-panel { grid-column:1 / -1; overflow:hidden; }
+    .events-tools { display:flex; align-items:center; gap:.7rem; padding:1rem; }
+    .events-tools h3 { margin:0 auto 0 0; font-size:.74rem; }
+    .event-search { width:min(230px,40%); min-height:34px; padding:.45rem .65rem; color:#dfe7df; background:#0c1510; border:1px solid #2a3b31; border-radius:.38rem; font-size:.57rem; }
+    .event-search::placeholder { color:#647268; }
+    .events-table { width:100%; border-collapse:collapse; font-size:.58rem; }
+    .events-table th { padding:.55rem .8rem; color:#66756b; background:#0c1510; border-block:1px solid #26372d; text-align:left; font-size:.5rem; letter-spacing:.07em; text-transform:uppercase; }
+    .events-table td { padding:.7rem .8rem; color:#aab7ac; border-bottom:1px solid #202f27; }
+    .events-table tr:last-child td { border:0; }
+    .events-table code { color:#dce6dd; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .severity { display:inline-flex; align-items:center; gap:.35rem; color:#f2b6a9; }.severity::before{width:6px;height:6px;content:"";background:#ff846c;border-radius:50%}.severity.medium{color:#f0d494}.severity.medium::before{background:#e6b758}.severity.low{color:#a8d8b1}.severity.low::before{background:#70cb83}
+    .rule-switch { position:relative; width:31px; height:17px; padding:0; background:#314138; border:0; border-radius:15px; cursor:pointer; vertical-align:middle; }
+    .rule-switch::after { position:absolute; top:3px; left:3px; width:11px; height:11px; content:""; background:#8d9a91; border-radius:50%; transition:.2s; }
+    .rule-switch.on { background:#caff63; }.rule-switch.on::after{left:17px;background:#142017}
+    @media(max-width:950px){.pyre-app{grid-template-columns:74px 1fr}.pyre-side{padding:1rem .65rem;align-items:center}.pyre-logo span,.pyre-logo>span,.pyre-side small,.pyre-nav button span,.system-card{display:none}.pyre-logo{margin-bottom:1.4rem}.pyre-nav button{justify-content:center;padding:.5rem}.metrics{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:1fr}.events-panel{grid-column:auto}.threat-panel{display:none}}
+    @media(max-width:600px){.prototype-stage{min-height:760px}.pyre-app{grid-template-columns:1fr}.pyre-side{display:none}.pyre-main{padding:1rem}.pyre-top h2{font-size:1.3rem}.top-actions .icon-action{display:none}.pyre-status span{display:none}.metrics{gap:.45rem}.metric{min-height:105px;padding:.75rem}.metric strong{font-size:1.3rem}.dashboard-grid{gap:.45rem}.traffic-panel{min-height:255px}.chart-wrap{height:170px}.events-tools{flex-wrap:wrap}.event-search{order:2;width:100%}.events-table th:nth-child(3),.events-table td:nth-child(3),.events-table th:nth-child(4),.events-table td:nth-child(4){display:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#prototype">Skip to prototype</a>
+  <header class="portfolio-bar project-shell">
+    <a class="portfolio-brand" href="../../"><span>MB</span> Back to portfolio</a>
+    <label class="project-switcher"><span>View project</span><select data-project-switcher aria-label="Switch project"><option value="" selected>01 · PyreWall</option><option value="../studysync/">02 · StudySync</option><option value="../carepath/">03 · CarePath</option><option value="../finwell/">04 · FinWell</option><option value="../resolve/">05 · Resolve</option></select></label>
+  </header>
+
+  <main>
+    <section class="prototype-hero project-shell">
+      <div><p class="project-kicker"><span>01</span> Cybersecurity operations · Live prototype</p><h1>Pyre<em>Wall</em></h1></div>
+      <div><p class="lead">A next-generation firewall command center that gives operators a clean mental model of traffic, threats, rules, and response—without losing the density professionals need.</p><dl class="project-facts"><div><dt>Original build</dt><dd>Sep—Nov 2025</dd></div><div><dt>Role</dt><dd>UI/UX · Product · Development</dd></div><div><dt>Platform</dt><dd>Desktop command center</dd></div><div><dt>Stack</dt><dd>Python · PyQt6 · SQLite · WinDivert</dd></div></dl></div>
+    </section>
+
+    <div class="prototype-stage-wrap" id="prototype">
+      <div class="stage-browser"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span>secure.pyrewall.local / command</span><b>Interactive prototype</b></div>
+      <section class="prototype-stage" aria-label="Interactive PyreWall firewall dashboard">
+        <div class="pyre-app">
+          <aside class="pyre-side">
+            <div class="pyre-logo"><i aria-hidden="true"></i><b>PYRE<span>WALL</span></b></div>
+            <small>Command</small>
+            <nav class="pyre-nav" aria-label="Product sections">
+              <button class="active" type="button" data-pyre-view="Overview"><b>◫</b><span>Overview</span></button>
+              <button type="button" data-pyre-view="Live traffic"><b>⌁</b><span>Live traffic</span></button>
+              <button type="button" data-pyre-view="Firewall rules"><b>⫶</b><span>Firewall rules</span></button>
+              <button type="button" data-pyre-view="Applications"><b>◈</b><span>Applications</span></button>
+              <button type="button" data-pyre-view="Security logs"><b>≣</b><span>Security logs</span></button>
+            </nav>
+            <div class="system-card"><div><i></i> Protection active</div><p>Ruleset synced 32 seconds ago. All monitored adapters are healthy.</p></div>
+          </aside>
+          <div class="pyre-main">
+            <header class="pyre-top"><div><p>Command center · <span id="viewLabel">Overview</span></p><h2 id="viewTitle">Network overview</h2></div><div class="top-actions"><button class="icon-action" type="button" data-toast="No new critical alerts.">⌁<span class="sr-only">Check alerts</span></button><button class="primary-action" type="button" id="scanButton">Run quick scan</button></div></header>
+            <div class="pyre-status"><strong>All systems operational</strong><span>Adapter: Ethernet 2</span><span>Rules active: 48</span><span>Last sync: 09:42:18</span></div>
+            <section class="metrics" aria-label="Network metrics">
+              <article class="metric"><small>Packets analyzed</small><strong id="packetMetric">2.84M</strong><span>↑ 12.4% today</span><svg viewBox="0 0 60 32" aria-hidden="true"><path d="M2 27 C10 25 13 17 21 20 S33 25 38 13 S48 17 58 4"/></svg></article>
+              <article class="metric"><small>Threats blocked</small><strong id="threatMetric">1,284</strong><span>34 in last hour</span><svg viewBox="0 0 60 32" aria-hidden="true"><path d="M2 25 C8 9 14 20 20 14 S30 28 36 10 S48 19 58 5"/></svg></article>
+              <article class="metric"><small>Active connections</small><strong id="connectionMetric">326</strong><span>18 trusted apps</span><svg viewBox="0 0 60 32" aria-hidden="true"><path d="M2 24 C12 27 15 10 23 15 S35 26 42 12 S51 7 58 9"/></svg></article>
+              <article class="metric"><small>Network latency</small><strong id="latencyMetric">18ms</strong><span>Healthy range</span><svg viewBox="0 0 60 32" aria-hidden="true"><path d="M2 18 C12 17 14 19 23 17 S35 18 42 14 S51 15 58 11"/></svg></article>
+            </section>
+            <section class="dashboard-grid">
+              <article class="panel traffic-panel"><div class="panel-head"><h3>Traffic activity</h3><div class="range" aria-label="Chart range"><button class="active" type="button" data-range="1H">1H</button><button type="button" data-range="24H">24H</button><button type="button" data-range="7D">7D</button></div></div><div class="chart-wrap"><div class="chart-labels" aria-hidden="true"><span>1.8K</span><span>1.2K</span><span>600</span><span>0</span></div><svg class="traffic-chart" viewBox="0 0 700 220" preserveAspectRatio="none" role="img" aria-labelledby="trafficChartTitle"><title id="trafficChartTitle">Network traffic over the selected period</title><path class="area" id="trafficArea" d="M0 189 C40 182 53 138 93 151 S148 180 180 111 S250 145 286 92 S343 122 386 64 S448 100 493 42 S562 76 604 31 S664 57 700 18 L700 220 L0 220Z"/><path class="line" id="trafficLine" d="M0 189 C40 182 53 138 93 151 S148 180 180 111 S250 145 286 92 S343 122 386 64 S448 100 493 42 S562 76 604 31 S664 57 700 18"/><circle class="point" cx="604" cy="31" r="5"/></svg></div></article>
+              <article class="panel threat-panel"><div class="panel-head"><h3>Protection score</h3><span class="severity low">Healthy</span></div><div class="risk-score"><div><strong>82</strong><small>out of 100</small></div></div><div class="risk-breakdown"><p><span>Rule coverage</span><b>96%</b></p><p><span>App control</span><b>88%</b></p><p><span>Web filtering</span><b>74%</b></p></div></article>
+              <article class="panel events-panel"><div class="events-tools"><h3>Live security events</h3><input class="event-search" id="eventSearch" type="search" placeholder="Filter IP, event, or port" aria-label="Filter security events" /><button class="icon-action" type="button" id="clearFilter" aria-label="Clear event filter">×</button></div><table class="events-table"><thead><tr><th>Severity</th><th>Event</th><th>Source</th><th>Port</th><th>Rule</th></tr></thead><tbody id="eventRows"><tr><td><span class="severity">High</span></td><td><code>Port scan detected</code></td><td>185.220.101.42</td><td>Multiple</td><td><button class="rule-switch on" type="button" aria-label="Disable port scan rule" aria-pressed="true"></button></td></tr><tr><td><span class="severity medium">Medium</span></td><td><code>Untrusted DNS request</code></td><td>10.0.0.24</td><td>53 / UDP</td><td><button class="rule-switch on" type="button" aria-label="Disable DNS rule" aria-pressed="true"></button></td></tr><tr><td><span class="severity low">Low</span></td><td><code>Application signature changed</code></td><td>DesignApp.exe</td><td>443 / TCP</td><td><button class="rule-switch" type="button" aria-label="Enable application rule" aria-pressed="false"></button></td></tr></tbody></table></article>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="prototype-note"><p>Try changing the chart range, filtering events, toggling rules, or running a scan.</p><a href="#case-study">View the design rationale ↓</a></div>
+
+    <section class="case-study project-shell" id="case-study">
+      <div class="case-intro"><p class="case-label">The design question</p><div><h2>How might we make network defense <em>legible at a glance</em> without hiding expert controls?</h2><p class="case-summary">Firewall software is information-dense by nature. The design prioritizes a calm operational hierarchy: system health first, change over time second, actionable events third, and deep configuration on demand.</p></div></div>
+      <div class="process-grid">
+        <article><span>01</span><h3>Frame the context</h3><p>Map operator goals across monitoring, investigation, rule management, web/app filtering, and evidence logging.</p></article>
+        <article><span>02</span><h3>Model the system</h3><p>Group capabilities around an operator’s mental model rather than around underlying technical modules.</p></article>
+        <article><span>03</span><h3>Design for scanning</h3><p>Use restrained color, aligned metrics, persistent health cues, and consistent severity semantics.</p></article>
+        <article><span>04</span><h3>Prototype behavior</h3><p>Make filters, range changes, state toggles, and security feedback visible before implementation.</p></article>
+      </div>
+      <div class="decision-section"><div class="decision-heading"><p class="case-label">Key decisions</p><h2>Dense, not difficult.</h2><p>Professional dashboards need precision, but density should never become visual noise. Each decision earns its place in the operator’s attention.</p></div><div class="decision-list"><article><span>01</span><div><h3>Status is never color alone</h3><p>Labels, icons, and position reinforce every status so the interface remains understandable for color-vision differences and low-quality displays.</p></div></article><article><span>02</span><div><h3>Progressive disclosure protects focus</h3><p>The overview exposes the health and risk signals needed now; detailed rules and raw logs sit in dedicated views.</p></div></article><article><span>03</span><div><h3>A compact component language</h3><p>Cards, filters, switches, tables, and severity tokens share predictable spacing and interaction feedback.</p></div></article><article><span>04</span><div><h3>Implementation-aware interaction</h3><p>The UI reflects the capabilities of the original Python, PyQt6, SQLite, and WinDivert product rather than inventing impossible behavior.</p></div></article></div></div>
+      <section class="validation"><div class="validation-head"><div><p class="case-label">Validation plan</p><h2>Test the moments where seconds matter.</h2></div><p>This concept avoids invented outcome metrics. A production evaluation would measure whether IT operators can detect, interpret, and act on priority events with fewer errors.</p></div><div class="validation-grid"><article><small>Task 01</small><h3>Triage a high-risk event</h3><p>Can the operator identify severity, source, affected port, and active rule without opening a detail view?</p></article><article><small>Task 02</small><h3>Explain system health</h3><p>Can the operator summarize protection state and recent change after a five-second scan?</p></article><article><small>Task 03</small><h3>Change a rule safely</h3><p>Does the control communicate state, consequence, and recovery before the action is confirmed?</p></article></div></section>
+    </section>
+    <div class="project-shell"><a class="next-project" href="../studysync/"><span>Next project · 02</span><strong>StudySync</strong><b>↗</b></a><footer class="case-footer"><p>© <span data-year>2026</span> Meco E. Buendia · UI/UX Designer</p><a href="../../">Return to portfolio ↑</a></footer></div>
+  </main>
+  <div class="app-toast" role="status" aria-live="polite"></div>
+  <script src="../project.js"></script>
+  <script>
+    const chartPaths = {
+      '1H': 'M0 189 C40 182 53 138 93 151 S148 180 180 111 S250 145 286 92 S343 122 386 64 S448 100 493 42 S562 76 604 31 S664 57 700 18',
+      '24H': 'M0 151 C48 124 78 171 118 116 S189 143 226 72 S294 119 332 83 S410 143 451 89 S528 51 567 77 S646 31 700 54',
+      '7D': 'M0 176 C61 144 93 159 133 126 S210 131 252 104 S323 124 368 75 S448 96 492 66 S579 81 621 40 S672 39 700 24'
+    };
+    document.querySelectorAll('[data-range]').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-range]').forEach((item) => item.classList.remove('active'));
+      button.classList.add('active');
+      const path = chartPaths[button.dataset.range];
+      document.querySelector('#trafficLine').setAttribute('d', path);
+      document.querySelector('#trafficArea').setAttribute('d', `${path} L700 220 L0 220Z`);
+      ProjectUI.toast(`Traffic view updated to ${button.dataset.range}.`);
+    }));
+    document.querySelectorAll('.rule-switch').forEach((button) => button.addEventListener('click', () => {
+      const isOn = button.classList.toggle('on');
+      button.setAttribute('aria-pressed', String(isOn));
+      button.setAttribute('aria-label', `${isOn ? 'Disable' : 'Enable'} this security rule`);
+      ProjectUI.toast(`Rule ${isOn ? 'enabled' : 'paused'} in this prototype.`);
+    }));
+    const filterEvents = () => {
+      const query = document.querySelector('#eventSearch').value.toLowerCase();
+      document.querySelectorAll('#eventRows tr').forEach((row) => { row.hidden = !row.textContent.toLowerCase().includes(query); });
+    };
+    document.querySelector('#eventSearch').addEventListener('input', filterEvents);
+    document.querySelector('#clearFilter').addEventListener('click', () => { document.querySelector('#eventSearch').value=''; filterEvents(); document.querySelector('#eventSearch').focus(); });
+    document.querySelector('#scanButton').addEventListener('click', (event) => {
+      event.currentTarget.disabled = true; event.currentTarget.textContent = 'Scanning…';
+      window.setTimeout(() => { event.currentTarget.disabled=false; event.currentTarget.textContent='Run quick scan'; ProjectUI.toast('Quick scan complete · no critical threats found.'); }, 900);
+    });
+    document.querySelectorAll('[data-pyre-view]').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-pyre-view]').forEach((item) => item.classList.remove('active'));
+      button.classList.add('active');
+      document.querySelector('#viewLabel').textContent = button.dataset.pyreView;
+      document.querySelector('#viewTitle').textContent = button.dataset.pyreView === 'Overview' ? 'Network overview' : button.dataset.pyreView;
+      ProjectUI.toast(`${button.dataset.pyreView} view selected. Overview data remains visible in this prototype.`);
+    }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="StudySync is Meco Buendia's interactive student productivity and collaboration prototype." />
+  <meta name="theme-color" content="#37266c" />
+  <title>StudySync — Live UI/UX Prototype by Meco Buendia</title>
+  <link rel="stylesheet" href="../project.css" />
+  <style>
+    :root { --case-accent:#ffb795; --hero-em:#7160ce; --stage-frame:#37266c; --browser-text:#e0d9ff; }
+    body { background:#f5f1eb; }
+    .prototype-stage { color:#29233a; background:#f8f5f0; }
+    .study-app { display:grid; grid-template-columns:220px 1fr; min-height:inherit; background:#f7f4ef; }
+    .study-side { display:flex; flex-direction:column; padding:1.2rem; color:#e8e1ff; background:#36246b; }
+    .study-logo { display:flex; align-items:center; gap:.75rem; margin-bottom:2.2rem; font-size:.88rem; font-weight:900; }
+    .study-logo i { display:grid; width:35px; height:35px; place-items:center; color:#3a276c; background:#ffb795; border-radius:.65rem; font-style:normal; font-size:.75rem; }
+    .workspace-label { margin:0 0 .7rem .55rem; color:#9a8bc7; font-size:.56rem; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    .study-nav { display:grid; gap:.32rem; }
+    .study-nav button { display:flex; align-items:center; gap:.75rem; min-height:43px; padding:.6rem .65rem; color:#b5a9dc; background:transparent; border:0; border-radius:.55rem; cursor:pointer; text-align:left; font-size:.7rem; font-weight:750; }
+    .study-nav button i { display:grid; width:24px; height:24px; place-items:center; border:1px solid #68569b; border-radius:.45rem; font-style:normal; font-size:.6rem; }
+    .study-nav button:hover,.study-nav button.active { color:#fff; background:#4a347f; }
+    .study-nav button.active i { color:#3a276c; background:#ffb795; border-color:#ffb795; }
+    .study-team { margin-top:auto; padding:.9rem; background:#2c1d5a; border:1px solid #58458e; border-radius:.75rem; }
+    .study-team > div { display:flex; align-items:center; justify-content:space-between; color:#fff; font-size:.64rem; font-weight:800; }
+    .avatars { display:flex; margin-top:.8rem; }
+    .avatars i { display:grid; width:26px; height:26px; margin-right:-6px; place-items:center; color:#3d2b69; background:#dfd6ff; border:2px solid #2c1d5a; border-radius:50%; font-style:normal; font-size:.48rem; font-weight:850; }
+    .avatars i:nth-child(2){background:#ffc6a9}.avatars i:nth-child(3){background:#a6e4d8}.avatars i:nth-child(4){background:#f5d883}
+    .study-main { min-width:0; padding:1.5rem clamp(1.2rem,2.5vw,2.8rem) 2.2rem; }
+    .study-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .study-top p { margin:0 0 .2rem; color:#877f92; font-size:.57rem; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+    .study-top h2 { margin:0; color:#29233a; font-family:var(--serif); font-size:clamp(1.55rem,2.8vw,2.8rem); font-weight:500; line-height:1; letter-spacing:-.045em; }
+    .profile-cluster { display:flex; align-items:center; gap:.65rem; }
+    .profile-cluster button { width:37px; height:37px; color:#5a4ba0; background:#eee9fb; border:1px solid #ddd5f4; border-radius:50%; cursor:pointer; }
+    .profile-avatar { display:grid; width:38px; height:38px; place-items:center; color:#fff; background:#7864c9; border-radius:50%; font-size:.6rem; font-weight:850; }
+    .day-tabs { display:flex; gap:.3rem; margin:1.8rem 0 .8rem; padding-bottom:.75rem; overflow-x:auto; border-bottom:1px solid #ddd8e0; }
+    .day-tabs button { min-width:67px; padding:.55rem .65rem; color:#7f7888; background:transparent; border:1px solid transparent; border-radius:.5rem; cursor:pointer; font-size:.58rem; font-weight:800; }
+    .day-tabs button.active { color:#3a276c; background:#fff; border-color:#dcd6e4; box-shadow:0 5px 15px rgba(48,34,82,.06); }
+    .study-dashboard { display:grid; grid-template-columns:minmax(0,1.22fr) minmax(280px,.78fr); gap:.75rem; }
+    .study-panel { background:#fff; border:1px solid #ded9e4; border-radius:.78rem; }
+    .plan-panel { padding:1rem; }
+    .panel-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+    .panel-heading h3 { margin:0; font-size:.76rem; }
+    .panel-heading span { color:#8b8494; font-size:.55rem; }
+    .schedule { display:grid; grid-template-columns:40px 1fr; gap:.5rem; }
+    .times { display:grid; grid-template-rows:repeat(5,46px); color:#aaa4b0; font-size:.47rem; }
+    .agenda-grid { position:relative; display:grid; grid-template-rows:repeat(5,46px); background:repeating-linear-gradient(to bottom,transparent 0 45px,#eeeaf1 45px 46px); }
+    .agenda-item { position:absolute; right:0; left:0; display:flex; align-items:center; justify-content:space-between; padding:.45rem .65rem; border-left:3px solid #7864c9; border-radius:.42rem; font-size:.57rem; }
+    .agenda-item b { font-size:.57rem; }.agenda-item span{color:#6f6777;font-size:.48rem}
+    .agenda-one { top:6px; height:39px; background:#eeeafb; }.agenda-two{top:57px;height:84px;background:#fff0e8;border-color:#ff906a}.agenda-three{top:155px;height:53px;background:#e4f6f1;border-color:#4cbba5}
+    .focus-card { display:grid; min-height:255px; place-items:center; align-content:center; padding:1.2rem; color:#fff; background:#7662c9; border-radius:.78rem; text-align:center; }
+    .focus-card small { color:#ded7ff; font-size:.53rem; font-weight:850; letter-spacing:.13em; }
+    .focus-card strong { margin:.35rem 0 0; font-size:clamp(2.8rem,5vw,4.6rem); line-height:1; letter-spacing:-.075em; }
+    .focus-card p { margin:.5rem 0 1.2rem; color:#ded8fa; font-size:.6rem; }
+    .timer-actions { display:flex; gap:.45rem; }
+    .timer-actions button { min-height:35px; padding:.45rem .75rem; color:#fff; background:#634fb4; border:1px solid #9484d6; border-radius:.45rem; cursor:pointer; font-size:.57rem; font-weight:800; }
+    .timer-actions button:first-child { color:#3a276c; background:#ffb795; border-color:#ffb795; }
+    .task-panel { grid-column:1 / -1; padding:1rem; }
+    .task-progress { display:flex; align-items:center; gap:.65rem; }
+    .task-progress span { color:#7f7889; font-size:.55rem; }
+    .progress-track { width:110px; height:6px; overflow:hidden; background:#e9e4ec; border-radius:6px; }
+    .progress-track i { display:block; width:33%; height:100%; background:#6e5ac2; border-radius:inherit; transition:width .25s ease; }
+    .add-task { padding:.42rem .65rem; color:#fff; background:#39286d; border:0; border-radius:.42rem; cursor:pointer; font-size:.55rem; font-weight:850; }
+    .task-list { display:grid; grid-template-columns:repeat(3,1fr); gap:.55rem; }
+    .task-item { display:grid; grid-template-columns:auto 1fr auto; gap:.65rem; align-items:center; min-height:64px; padding:.75rem; background:#f8f6fa; border:1px solid #e7e1eb; border-radius:.55rem; }
+    .task-check { display:grid; width:22px; height:22px; place-items:center; color:transparent; background:#fff; border:1px solid #c9c1d0; border-radius:.38rem; cursor:pointer; font-size:.65rem; }
+    .task-item.done .task-check { color:#fff; background:#5cb69f; border-color:#5cb69f; }
+    .task-item b { display:block; font-size:.6rem; }.task-item small{color:#928b9a;font-size:.48rem}.task-item.done b{text-decoration:line-through;color:#8b8690}
+    .task-item > span { padding:.25rem .35rem; color:#6554af; background:#ebe6fa; border-radius:.3rem; font-size:.46rem; font-weight:800; }
+    .task-dialog { width:min(440px,calc(100% - 2rem)); padding:0; color:#2d273a; background:#fff; border:1px solid #d8d1df; border-radius:.9rem; box-shadow:0 30px 100px rgba(35,24,70,.3); }
+    .task-dialog::backdrop { background:rgba(31,21,52,.58); backdrop-filter:blur(4px); }
+    .dialog-form { padding:1.4rem; }
+    .dialog-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .dialog-head h3 { margin:0; font-family:var(--serif); font-size:1.5rem; font-weight:500; }
+    .dialog-head button { width:34px; height:34px; background:#f0ebf4; border:0; border-radius:50%; cursor:pointer; }
+    .dialog-form label { display:grid; gap:.35rem; margin-top:1rem; color:#6f6877; font-size:.63rem; font-weight:750; }
+    .dialog-form input,.dialog-form select { min-height:44px; padding:.6rem .7rem; color:#2d273a; background:#faf9fb; border:1px solid #d7d1dc; border-radius:.48rem; }
+    .dialog-submit { width:100%; min-height:44px; margin-top:1.2rem; color:#fff; background:#3a276c; border:0; border-radius:.5rem; cursor:pointer; font-weight:850; }
+    @media(max-width:950px){.study-app{grid-template-columns:74px 1fr}.study-side{padding:1rem .6rem;align-items:center}.study-logo b,.workspace-label,.study-nav button span,.study-team{display:none}.study-nav button{justify-content:center;padding:.55rem}.study-logo{margin-bottom:1.5rem}.task-list{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){.prototype-stage{min-height:770px}.study-app{grid-template-columns:1fr}.study-side{display:none}.study-main{padding:1rem}.study-top h2{font-size:1.55rem}.profile-cluster button{display:none}.day-tabs{margin-top:1rem}.study-dashboard{grid-template-columns:1fr}.focus-card{min-height:170px}.focus-card strong{font-size:3rem}.task-panel{grid-column:auto}.task-list{grid-template-columns:1fr}.task-item:nth-child(n+3){display:none}.task-progress{display:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#prototype">Skip to prototype</a>
+  <header class="portfolio-bar project-shell"><a class="portfolio-brand" href="../../"><span>MB</span> Back to portfolio</a><label class="project-switcher"><span>View project</span><select data-project-switcher aria-label="Switch project"><option value="../pyrewall/">01 · PyreWall</option><option value="" selected>02 · StudySync</option><option value="../carepath/">03 · CarePath</option><option value="../finwell/">04 · FinWell</option><option value="../resolve/">05 · Resolve</option></select></label></header>
+  <main>
+    <section class="prototype-hero project-shell"><div><p class="project-kicker"><span>02</span> Education platform · Live prototype</p><h1>Study<em>Sync</em></h1></div><div><p class="lead">A focused academic workspace that combines planning, deep work, calendar structure, group collaboration, and notifications—without making students manage five different tools.</p><dl class="project-facts"><div><dt>Original build</dt><dd>Sep—Oct 2025</dd></div><div><dt>Role</dt><dd>UI/UX · Product · Development</dd></div><div><dt>Platform</dt><dd>Responsive productivity app</dd></div><div><dt>Stack</dt><dd>Python · PyQt6 · Supabase · Gmail API</dd></div></dl></div></section>
+    <div class="prototype-stage-wrap" id="prototype"><div class="stage-browser"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span>app.studysync.local / today</span><b>Interactive prototype</b></div><section class="prototype-stage" aria-label="Interactive StudySync student workspace"><div class="study-app">
+      <aside class="study-side"><div class="study-logo"><i>S</i><b>StudySync</b></div><p class="workspace-label">Workspace</p><nav class="study-nav" aria-label="StudySync sections"><button class="active" type="button" data-view="Today"><i>⌂</i><span>Today</span></button><button type="button" data-view="Tasks"><i>✓</i><span>Tasks</span></button><button type="button" data-view="Calendar"><i>□</i><span>Calendar</span></button><button type="button" data-view="Study groups"><i>◎</i><span>Study groups</span></button><button type="button" data-view="Resources"><i>≡</i><span>Resources</span></button></nav><div class="study-team"><div><span>Capstone team</span><span>4</span></div><div class="avatars" aria-label="Four team members"><i>MB</i><i>JC</i><i>AR</i><i>+</i></div></div></aside>
+      <div class="study-main"><header class="study-top"><div><p>Monday · Week 06 · <span id="studyView">Today</span></p><h2>Make space to focus.</h2></div><div class="profile-cluster"><button type="button" data-toast="You are all caught up—no new notifications." aria-label="Notifications">♢</button><div class="profile-avatar" aria-label="Meco Buendia profile">MB</div></div></header>
+        <div class="day-tabs" role="tablist" aria-label="Choose study day"><button class="active" type="button" role="tab" aria-selected="true" data-day="Mon 16">Mon 16</button><button type="button" role="tab" aria-selected="false" data-day="Tue 17">Tue 17</button><button type="button" role="tab" aria-selected="false" data-day="Wed 18">Wed 18</button><button type="button" role="tab" aria-selected="false" data-day="Thu 19">Thu 19</button><button type="button" role="tab" aria-selected="false" data-day="Fri 20">Fri 20</button></div>
+        <section class="study-dashboard"><article class="study-panel plan-panel"><div class="panel-heading"><h3>Today’s flow</h3><span id="daySummary">3 blocks · 4h 30m</span></div><div class="schedule"><div class="times"><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span></div><div class="agenda-grid"><div class="agenda-item agenda-one"><b>UI review</b><span>09:10 · 35m</span></div><div class="agenda-item agenda-two"><b>Research synthesis</b><span>10:15 · 1h 30m</span></div><div class="agenda-item agenda-three"><b>Capstone sync</b><span>12:25 · 55m</span></div></div></div></article>
+          <article class="focus-card"><small>FOCUS SESSION</small><strong id="timer">48:12</strong><p>Research synthesis · Deep work</p><div class="timer-actions"><button id="timerToggle" type="button">Start timer</button><button type="button" id="timerReset">Reset</button></div></article>
+          <article class="study-panel task-panel"><div class="panel-heading"><h3>Priority tasks</h3><div class="task-progress"><span id="taskCount">1 of 3 done</span><div class="progress-track" aria-hidden="true"><i id="progressFill"></i></div></div><button class="add-task" type="button" id="openTaskDialog">+ Add task</button></div><div class="task-list" id="taskList"><article class="task-item done"><button class="task-check" type="button" aria-label="Mark Design audit incomplete" aria-pressed="true">✓</button><div><b>Design audit</b><small>PyreWall · Done</small></div><span>UI</span></article><article class="task-item"><button class="task-check" type="button" aria-label="Mark Research synthesis complete" aria-pressed="false">✓</button><div><b>Research synthesis</b><small>UX Methods · 2:00 PM</small></div><span>UX</span></article><article class="task-item"><button class="task-check" type="button" aria-label="Mark Supabase schema complete" aria-pressed="false">✓</button><div><b>Supabase schema</b><small>Capstone · Today</small></div><span>DEV</span></article></div></article>
+        </section>
+      </div>
+    </div></section></div>
+    <div class="prototype-note"><p>Try the focus timer, complete tasks, switch days, or add a task.</p><a href="#case-study">View the design rationale ↓</a></div>
+    <dialog class="task-dialog" id="taskDialog"><form class="dialog-form" id="taskForm" method="dialog"><div class="dialog-head"><h3>Add a priority task</h3><button type="button" id="closeTaskDialog" aria-label="Close dialog">×</button></div><label>Task name<input id="newTaskName" name="task" required maxlength="45" placeholder="e.g. Review interaction flow" /></label><label>Category<select id="newTaskCategory"><option>UX</option><option>UI</option><option>DEV</option><option>TEAM</option></select></label><button class="dialog-submit" type="submit">Add to today</button></form></dialog>
+
+    <section class="case-study project-shell" id="case-study"><div class="case-intro"><p class="case-label">The design question</p><div><h2>How might one workspace protect a student’s <em>attention</em> while keeping collaboration visible?</h2><p class="case-summary">Student tools often reward activity rather than progress. StudySync reframes the dashboard around a realistic day: a few priority tasks, scheduled focus, and the team context needed to keep momentum.</p></div></div>
+      <div class="process-grid"><article><span>01</span><h3>Organize the ecosystem</h3><p>Consolidate tasks, scheduling, group work, email notifications, and resources under one predictable navigation model.</p></article><article><span>02</span><h3>Prioritize the day</h3><p>Make the “today” view useful before asking students to manage an entire academic system.</p></article><article><span>03</span><h3>Reduce attention debt</h3><p>Use calm defaults, a small priority list, and an explicit focus state to minimize context switching.</p></article><article><span>04</span><h3>Design every state</h3><p>Prototype completion, progress, timer, dialog, schedule selection, and empty-state behavior.</p></article></div>
+      <div class="decision-section"><div class="decision-heading"><p class="case-label">Key decisions</p><h2>Momentum over busyness.</h2><p>The product uses progress as information, not pressure. The UI surfaces the next meaningful action while leaving space for recovery and changing plans.</p></div><div class="decision-list"><article><span>01</span><div><h3>One primary “today” surface</h3><p>Instead of opening on a full calendar or task backlog, the product starts with a manageable daily picture.</p></div></article><article><span>02</span><div><h3>Time and tasks share context</h3><p>The schedule and priority list appear together so students can judge whether a plan is realistic.</p></div></article><article><span>03</span><div><h3>Focus mode is visible and reversible</h3><p>The timer makes state obvious, gives a simple pause/reset path, and avoids gamifying time with punitive streaks.</p></div></article><article><span>04</span><div><h3>Collaboration without notification overload</h3><p>Teams remain visible in the navigation, while notifications use quiet hierarchy until attention is actually required.</p></div></article></div></div>
+      <section class="validation"><div class="validation-head"><div><p class="case-label">Validation plan</p><h2>Test whether planning feels lighter.</h2></div><p>A production study would recruit students with different course loads and accessibility needs, testing comprehension before measuring adoption.</p></div><div class="validation-grid"><article><small>Task 01</small><h3>Plan a study day</h3><p>Can a student identify available time and add a priority without leaving the dashboard?</p></article><article><small>Task 02</small><h3>Recover from interruption</h3><p>Can they pause focus, understand what remains, and resume without losing context?</p></article><article><small>Task 03</small><h3>Coordinate group work</h3><p>Can they find the right team space, assignment context, and next action quickly?</p></article></div></section>
+    </section>
+    <div class="project-shell"><a class="next-project" href="../carepath/"><span>Next project · 03</span><strong>CarePath</strong><b>↗</b></a><footer class="case-footer"><p>© <span data-year>2026</span> Meco E. Buendia · UI/UX Designer</p><a href="../../">Return to portfolio ↑</a></footer></div>
+  </main>
+  <div class="app-toast" role="status" aria-live="polite"></div>
+  <script src="../project.js"></script>
+  <script>
+    document.querySelectorAll('.study-nav button').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('.study-nav button').forEach((item)=>item.classList.remove('active')); button.classList.add('active'); document.querySelector('#studyView').textContent=button.dataset.view; ProjectUI.toast(`${button.dataset.view} selected. Today remains visible in this prototype.`); }));
+    document.querySelectorAll('.day-tabs button').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('.day-tabs button').forEach((item)=>{item.classList.remove('active');item.setAttribute('aria-selected','false')}); button.classList.add('active');button.setAttribute('aria-selected','true');document.querySelector('#daySummary').textContent=button.dataset.day==='Mon 16'?'3 blocks · 4h 30m':'2 blocks · 3h 15m';ProjectUI.toast(`${button.dataset.day} schedule selected.`); }));
+    let timerSeconds=2892; let timerInterval=null;
+    const renderTimer=()=>{const minutes=Math.floor(timerSeconds/60);const seconds=timerSeconds%60;document.querySelector('#timer').textContent=`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`};
+    document.querySelector('#timerToggle').addEventListener('click',(event)=>{if(timerInterval){clearInterval(timerInterval);timerInterval=null;event.currentTarget.textContent='Resume timer';ProjectUI.toast('Focus session paused.');return;}event.currentTarget.textContent='Pause timer';timerInterval=setInterval(()=>{timerSeconds=Math.max(0,timerSeconds-1);renderTimer();if(!timerSeconds){clearInterval(timerInterval);timerInterval=null;event.currentTarget.textContent='Start timer';ProjectUI.toast('Focus session complete. Take a short break.');}},1000);});
+    document.querySelector('#timerReset').addEventListener('click',()=>{clearInterval(timerInterval);timerInterval=null;timerSeconds=2892;renderTimer();document.querySelector('#timerToggle').textContent='Start timer';ProjectUI.toast('Focus timer reset.');});
+    const updateTaskProgress=()=>{const tasks=[...document.querySelectorAll('.task-item')];const done=tasks.filter((task)=>task.classList.contains('done')).length;document.querySelector('#taskCount').textContent=`${done} of ${tasks.length} done`;document.querySelector('#progressFill').style.width=`${Math.round(done/tasks.length*100)}%`;};
+    document.querySelector('#taskList').addEventListener('click',(event)=>{const button=event.target.closest('.task-check');if(!button)return;const item=button.closest('.task-item');const done=item.classList.toggle('done');button.setAttribute('aria-pressed',String(done));button.setAttribute('aria-label',`Mark ${item.querySelector('b').textContent} ${done?'incomplete':'complete'}`);updateTaskProgress();});
+    const dialog=document.querySelector('#taskDialog');document.querySelector('#openTaskDialog').addEventListener('click',()=>dialog.showModal());document.querySelector('#closeTaskDialog').addEventListener('click',()=>dialog.close());
+    document.querySelector('#taskForm').addEventListener('submit',(event)=>{event.preventDefault();const name=document.querySelector('#newTaskName').value.trim();if(!name)return;const category=document.querySelector('#newTaskCategory').value;const task=document.createElement('article');task.className='task-item';const check=document.createElement('button');check.className='task-check';check.type='button';check.textContent='✓';check.setAttribute('aria-label',`Mark ${name} complete`);check.setAttribute('aria-pressed','false');const copy=document.createElement('div');const title=document.createElement('b');title.textContent=name;const meta=document.createElement('small');meta.textContent='Added just now';copy.append(title,meta);const tag=document.createElement('span');tag.textContent=category;task.append(check,copy,tag);document.querySelector('#taskList').append(task);event.target.reset();dialog.close();updateTaskProgress();ProjectUI.toast('Task added to today.');});
+  </script>
+</body>
+</html>

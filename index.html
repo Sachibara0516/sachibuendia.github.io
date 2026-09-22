@@ -3,187 +3,279 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Meco E. Buendia — UI/UX designer portfolio focused on clear, polished interfaces for technical products." />
-  <meta name="theme-color" content="#fbf5f8" />
-  <title>Meco E. Buendia — UI/UX Designer</title>
+  <meta name="description" content="Meco E. Buendia is a UI/UX designer and Cum Laude IT graduate designing clear, accessible interfaces for technical systems." />
+  <meta name="theme-color" content="#171815" />
+  <meta property="og:title" content="Meco Buendia — UI/UX & Product Designer" />
+  <meta property="og:description" content="Five interactive product design prototypes, technical product work, experience, and credentials." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sachibuendia.vercel.app/" />
+  <title>Meco Buendia — UI/UX & Product Designer</title>
+  <link rel="canonical" href="https://sachibuendia.vercel.app/" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Meco Buendia home">
-      <span class="brand-mark">MB</span>
-      <span class="brand-copy"><strong>Meco Buendia</strong><small>UI/UX Designer</small></span>
+    <a class="brand" href="#top" aria-label="Meco Buendia, home">
+      <span class="brand-mark" aria-hidden="true">MB</span>
+      <span class="brand-text">Meco Buendia<small>UI/UX + Product Design</small></span>
     </a>
-
-    <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav" id="siteNav">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#journey">Journey</a>
-      <a class="nav-cta" href="#contact">Let’s connect</a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#work">Projects</a>
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Credentials</a>
+      <a class="nav-cta" href="mailto:mecobuendia1@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero section-shell">
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <div class="kicker"><span class="kicker-dot"></span> Open to UI/UX and interface design opportunities</div>
-        <h1>I design interfaces that feel <em>soft, clear,</em> and easy to use.</h1>
-        <p class="hero-lead">
-          I’m <strong>Meco E. Buendia</strong>, a UI/UX designer with an IT background. I turn technical systems into approachable experiences through thoughtful hierarchy, clean interactions, and polished visual design.
-        </p>
+        <p class="availability"><span aria-hidden="true"></span> Open to UI/UX opportunities · Philippines / Remote</p>
+        <h1 id="hero-title">I make complex systems feel <em>clear, calm,</em> and human.</h1>
+        <p class="hero-lead">I’m <strong>Meco E. Buendia</strong>—a UI/UX designer, Cum Laude Information Technology graduate, and licensed financial advisor. I bring product thinking, technical fluency, and client empathy to every interface.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#work">View selected work</a>
-          <a class="button secondary" href="mailto:mecobuendia1@gmail.com">Email me</a>
+          <a class="button button-dark" href="#work">Explore five projects <span aria-hidden="true">↓</span></a>
+          <a class="button button-light" href="#profile">Read my story</a>
         </div>
-        <div class="hero-meta">
-          <div><span>Focus</span><strong>UI/UX & interface design</strong></div>
-          <div><span>Tools</span><strong>Figma · Canva</strong></div>
-          <div><span>Foundation</span><strong>BS Information Technology</strong></div>
-        </div>
+        <dl class="hero-facts">
+          <div><dt>Foundation</dt><dd>BS Information Technology</dd></div>
+          <div><dt>Recognition</dt><dd>Cum Laude · GWA 1.40</dd></div>
+          <div><dt>Specialty</dt><dd>Technical product interfaces</dd></div>
+        </dl>
       </div>
 
-      <div class="hero-visual reveal delay-1" aria-label="Interface design preview">
-        <div class="visual-backdrop"></div>
-        <article class="ui-window main-window">
-          <div class="window-bar"><span></span><span></span><span></span><b>Design workspace</b></div>
-          <div class="window-body">
-            <aside class="mini-sidebar">
-              <div class="mini-logo">M</div>
-              <i class="active"></i><i></i><i></i><i></i>
-            </aside>
-            <div class="mini-content">
-              <div class="mini-label">Overview</div>
-              <div class="mini-title"></div>
-              <div class="mini-subtitle"></div>
-              <div class="mini-stats"><span></span><span></span><span></span></div>
-              <div class="mini-grid"><div></div><div></div></div>
+      <div class="hero-art reveal delay-1" aria-label="A collection of interface design snapshots">
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        <article class="hero-window window-main">
+          <header><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><small>Product overview</small><b>⌘ K</b></header>
+          <div class="window-layout">
+            <aside aria-hidden="true"><strong>M</strong><i></i><i></i><i></i><i></i></aside>
+            <div class="window-content">
+              <div class="window-title"><div><small>MONDAY, 09:42</small><h2>Good systems reduce noise.</h2></div><span>+ New view</span></div>
+              <div class="metric-grid"><div><small>Clarity score</small><strong>94<span>%</span></strong><i class="metric-line"></i></div><div><small>Open tasks</small><strong>08</strong><i class="metric-bars"></i></div></div>
+              <div class="activity-panel"><div class="panel-top"><b>Design activity</b><span>Past 7 days</span></div><svg viewBox="0 0 360 110" role="img" aria-label="Rising design activity chart"><path class="chart-grid" d="M0 20H360M0 55H360M0 90H360"/><path class="chart-fill" d="M0 88 C40 82 52 60 86 67 S132 90 166 52 S226 66 255 34 S317 48 360 13 L360 110 L0 110Z"/><path class="chart-line" d="M0 88 C40 82 52 60 86 67 S132 90 166 52 S226 66 255 34 S317 48 360 13"/></svg></div>
             </div>
           </div>
         </article>
-        <article class="floating-card palette-card"><span>Palette</span><div class="swatches"><i></i><i></i><i></i><i></i></div></article>
-        <article class="floating-card note-card"><span>Design note</span><strong>Clarity first.</strong><small>Beautiful, but always usable.</small></article>
-        <div class="sparkle s1">✦</div><div class="sparkle s2">✧</div><div class="sparkle s3">✦</div>
+        <article class="hero-note note-one"><span>01</span><p><strong>Structure</strong> before decoration.</p></article>
+        <article class="hero-note note-two"><span aria-hidden="true">✦</span><p>Designed with <strong>empathy + evidence.</strong></p></article>
+        <p class="hero-caption">A portfolio built around real interactions—not static mockups.</p>
       </div>
     </section>
 
-    <section class="section-shell intro-strip reveal">
-      <p>Designing at the intersection of <strong>visual craft</strong>, <strong>usability</strong>, and <strong>technical understanding</strong>.</p>
-      <div class="strip-tags"><span>UI Systems</span><span>Responsive Layouts</span><span>Interaction Design</span><span>Technical Products</span></div>
+    <section class="marquee" aria-label="Areas of practice">
+      <div class="marquee-track" aria-hidden="true">
+        <span>Product strategy</span><i>✦</i><span>User research</span><i>✦</i><span>Information architecture</span><i>✦</i><span>Interaction design</span><i>✦</i><span>Accessibility</span><i>✦</i><span>Prototyping</span><i>✦</i><span>Design systems</span><i>✦</i><span>Usability testing</span><i>✦</i>
+        <span>Product strategy</span><i>✦</i><span>User research</span><i>✦</i><span>Information architecture</span><i>✦</i><span>Interaction design</span><i>✦</i><span>Accessibility</span><i>✦</i><span>Prototyping</span><i>✦</i><span>Design systems</span><i>✦</i><span>Usability testing</span><i>✦</i>
+      </div>
     </section>
 
-    <section class="section-shell section" id="work">
-      <div class="section-heading reveal">
-        <div><p class="eyebrow">Selected work</p><h2>Interfaces for real systems.</h2></div>
-        <p>Two technical products where the interface needed to make complex features understandable, organized, and usable.</p>
+    <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-intro reveal">
+        <div><p class="eyebrow">Selected work · 2025–2026</p><h2 id="work-title">Five products. Five UX problems.</h2></div>
+        <p>Two products evolve my original academic work; three are new, interaction-rich concept prototypes. Together they demonstrate the breadth of a professional product design practice.</p>
       </div>
 
-      <div class="projects">
+      <div class="project-list">
         <article class="project-card project-pyre reveal">
-          <div class="project-visual pyre-visual">
-            <div class="mock-app dark-mock">
-              <div class="mock-side"><b>P</b><span></span><span></span><span></span><span></span></div>
-              <div class="mock-main"><small>SECURITY OVERVIEW</small><h3>PyreWall</h3><div class="mock-cards"><i></i><i></i><i></i></div><div class="mock-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="mock-table"><i></i><i></i><i></i></div></div>
+          <a class="project-preview" href="projects/pyrewall/" aria-label="Open the PyreWall live prototype">
+            <div class="browser-bar"><span><i></i><i></i><i></i></span><small>secure.pyrewall.local</small><b>Live prototype ↗</b></div>
+            <div class="pyre-ui preview-ui">
+              <aside><strong>PYRE<span>WALL</span></strong><i class="active"></i><i></i><i></i><i></i><i></i></aside>
+              <div class="preview-body"><header><div><small>COMMAND CENTER</small><h3>Network overview</h3></div><span>● Systems normal</span></header><div class="pyre-metrics"><i></i><i></i><i></i></div><div class="pyre-bottom"><div class="pyre-chart"><b>Traffic activity</b><span></span></div><div class="pyre-events"><b>Recent events</b><i></i><i></i><i></i></div></div></div>
             </div>
-          </div>
+          </a>
           <div class="project-copy">
-            <div class="project-top"><span class="project-index">01</span><span class="case-type">Desktop product UI</span></div>
-            <h3>PyreWall</h3>
-            <p>A desktop firewall management system that brings network monitoring, filtering, rules, traffic visualization, and security logging into one modern interface.</p>
-            <div class="project-tags"><span>UI/UX</span><span>PyQt6</span><span>Dashboard</span><span>Security</span></div>
-            <button class="text-link" data-case="pyrewall">View case study <span>↗</span></button>
+            <div class="project-meta"><span>01 · Cybersecurity SaaS</span><span>Desktop-first</span></div>
+            <h3>PyreWall <small>Security without the static.</small></h3>
+            <p>A next-generation firewall command center that turns live traffic, rules, filters, and security logs into an understandable operational workflow.</p>
+            <ul class="skill-chips" aria-label="Skills demonstrated"><li>Data visualization</li><li>Complex workflows</li><li>Design system</li><li>Interaction design</li></ul>
+            <a class="project-link" href="projects/pyrewall/">Launch prototype <span aria-hidden="true">↗</span></a>
           </div>
         </article>
 
         <article class="project-card project-study reveal">
-          <div class="project-visual study-visual">
-            <div class="mock-app light-mock">
-              <div class="study-top"><b>StudySync</b><div><i></i><i></i><i></i></div></div>
-              <div class="study-layout"><aside><span></span><span></span><span></span><span></span></aside><div class="study-content"><small>YOUR DAY</small><h3>Good morning</h3><div class="study-cards"><i></i><i></i></div><div class="study-panel"><span></span><span></span><span></span></div></div></div>
+          <a class="project-preview" href="projects/studysync/" aria-label="Open the StudySync live prototype">
+            <div class="browser-bar"><span><i></i><i></i><i></i></span><small>app.studysync.local</small><b>Live prototype ↗</b></div>
+            <div class="study-ui preview-ui">
+              <aside><strong>S<span>StudySync</span></strong><i class="active"></i><i></i><i></i><i></i></aside>
+              <div class="preview-body"><header><div><small>MONDAY · WEEK 06</small><h3>Make space to focus.</h3></div><span>MB</span></header><div class="study-columns"><div class="study-agenda"><b>Today’s flow</b><i></i><i></i><i></i></div><div class="study-focus"><small>FOCUS SESSION</small><strong>48:12</strong><span>Research synthesis</span><i class="mock-button">Pause</i></div></div></div>
             </div>
-          </div>
+          </a>
           <div class="project-copy">
-            <div class="project-top"><span class="project-index">02</span><span class="case-type">Productivity platform UI</span></div>
-            <h3>StudySync</h3>
-            <p>A student productivity and collaboration platform centered on tasks, calendars, group spaces, communication, and academic organization.</p>
-            <div class="project-tags"><span>UI/UX</span><span>Productivity</span><span>Collaboration</span><span>Supabase</span></div>
-            <button class="text-link" data-case="studysync">View case study <span>↗</span></button>
+            <div class="project-meta"><span>02 · Education platform</span><span>Responsive web app</span></div>
+            <h3>StudySync <small>Momentum, made visible.</small></h3>
+            <p>A focused academic workspace unifying tasks, calendars, group collaboration, notifications, and planning without overwhelming students.</p>
+            <ul class="skill-chips" aria-label="Skills demonstrated"><li>Information architecture</li><li>User flows</li><li>Responsive UI</li><li>Productivity UX</li></ul>
+            <a class="project-link" href="projects/studysync/">Launch prototype <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card project-care reveal">
+          <a class="project-preview" href="projects/carepath/" aria-label="Open the CarePath live prototype">
+            <div class="browser-bar"><span><i></i><i></i><i></i></span><small>carepath.health</small><b>Live prototype ↗</b></div>
+            <div class="care-ui preview-ui">
+              <div class="care-nav"><strong>care<span>path</span></strong><span>Appointments&nbsp;&nbsp; Care team&nbsp;&nbsp; Support</span><b>MB</b></div>
+              <div class="care-layout"><div class="care-copy"><small>APPOINTMENTS, SIMPLIFIED</small><h3>Find care that fits your life.</h3><p>Accessible booking, clear costs, and the right clinician—without the runaround.</p><i></i><i></i></div><div class="care-phone"><span>Step 2 of 3</span><b>Choose a time</b><div><i></i><i></i><i></i></div><i class="mock-button">Continue</i></div></div>
+            </div>
+          </a>
+          <div class="project-copy">
+            <div class="project-meta"><span>03 · Digital health</span><span>Accessible booking</span></div>
+            <h3>CarePath <small>Care without uncertainty.</small></h3>
+            <p>An inclusive appointment experience built around plain language, transparent choices, keyboard access, and low-stress decision making.</p>
+            <ul class="skill-chips" aria-label="Skills demonstrated"><li>Accessibility</li><li>Service design</li><li>Content design</li><li>Mobile prototyping</li></ul>
+            <a class="project-link" href="projects/carepath/">Launch prototype <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card project-fin reveal">
+          <a class="project-preview" href="projects/finwell/" aria-label="Open the FinWell live prototype">
+            <div class="browser-bar"><span><i></i><i></i><i></i></span><small>dashboard.finwell.local</small><b>Live prototype ↗</b></div>
+            <div class="fin-ui preview-ui">
+              <aside><strong>fin<span>well</span></strong><i class="active"></i><i></i><i></i><i></i></aside>
+              <div class="preview-body"><header><div><small>FINANCIAL WELLNESS</small><h3>Your money, with a plan.</h3></div><span>September⌄</span></header><div class="fin-grid"><div class="fin-score"><small>Wellness score</small><strong>82</strong><span>↑ 8 this month</span></div><div class="fin-ring"><i></i><b>68%</b><small>goal funded</small></div><div class="fin-plan"><b>Monthly plan</b><i></i><i></i><i></i></div></div></div>
+            </div>
+          </a>
+          <div class="project-copy">
+            <div class="project-meta"><span>04 · Financial wellness</span><span>Data-led planning</span></div>
+            <h3>FinWell <small>Confidence over complexity.</small></h3>
+            <p>A trustworthy financial planning dashboard shaped by client-advisory experience, with approachable language and actionable progress.</p>
+            <ul class="skill-chips" aria-label="Skills demonstrated"><li>Behavioral design</li><li>Trust patterns</li><li>Data storytelling</li><li>Inclusive forms</li></ul>
+            <a class="project-link" href="projects/finwell/">Launch prototype <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card project-resolve reveal">
+          <a class="project-preview" href="projects/resolve/" aria-label="Open the Resolve live prototype">
+            <div class="browser-bar"><span><i></i><i></i><i></i></span><small>workspace.resolve.support</small><b>Live prototype ↗</b></div>
+            <div class="resolve-ui preview-ui">
+              <aside><strong>R/</strong><span>Workspace</span><i class="active"></i><i></i><i></i><i></i></aside>
+              <div class="preview-body"><header><div><small>SERVICE DESK</small><h3>Good support starts with context.</h3></div><i class="mock-button">+ New ticket</i></header><div class="resolve-board"><div><b>New <span>4</span></b><i></i><i></i></div><div><b>In progress <span>3</span></b><i></i><i></i></div><div><b>Resolved <span>8</span></b><i></i><i></i></div></div></div>
+            </div>
+          </a>
+          <div class="project-copy">
+            <div class="project-meta"><span>05 · IT service operations</span><span>Workflow product</span></div>
+            <h3>Resolve <small>Support that keeps its promise.</small></h3>
+            <p>A service-desk workspace shaped by hands-on IT support: faster intake, visible ownership, useful context, and calmer resolution flows.</p>
+            <ul class="skill-chips" aria-label="Skills demonstrated"><li>Service blueprint</li><li>Workflow design</li><li>UX writing</li><li>Usability heuristics</li></ul>
+            <a class="project-link" href="projects/resolve/">Launch prototype <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section-shell section" id="about">
-      <div class="about-layout">
-        <div class="about-copy reveal">
-          <p class="eyebrow">About me</p>
-          <h2>Technical enough to understand the system. Design-minded enough to simplify it.</h2>
-          <p>I’m a Cum Laude BS Information Technology graduate and TESDA CSS NC II holder with hands-on exposure to IT support, systems, and networking. That technical foundation helps me design interfaces with a stronger understanding of how real products behave behind the screen.</p>
-          <p>My design approach is simple: organize information clearly, make actions feel obvious, and give technical products a visual personality without sacrificing usability.</p>
-          <a class="text-link inline-link" href="#contact">Work with me <span>↗</span></a>
+    <section class="discipline-section" aria-labelledby="discipline-title">
+      <div class="section-shell">
+        <div class="section-intro inverse reveal"><div><p class="eyebrow">Capability coverage</p><h2 id="discipline-title">From ambiguity to a shippable interface.</h2></div><p>The five prototypes are intentionally designed as a portfolio system: each spotlights a different domain, user need, interaction model, and professional competency.</p></div>
+        <div class="discipline-grid reveal">
+          <article><span>01</span><h3>Discover</h3><p>Problem framing, desk research, stakeholder questions, user needs, constraints, competitive review.</p></article>
+          <article><span>02</span><h3>Define</h3><p>Personas, journeys, service blueprints, information architecture, content hierarchy, success criteria.</p></article>
+          <article><span>03</span><h3>Design</h3><p>User flows, wireframes, responsive UI, interaction states, visual systems, reusable components.</p></article>
+          <article><span>04</span><h3>Validate</h3><p>Clickable prototypes, heuristic review, accessibility checks, usability tasks, iteration decisions.</p></article>
+          <article><span>05</span><h3>Deliver</h3><p>Developer-ready specifications, design tokens, edge cases, documentation, QA, outcome tracking.</p></article>
         </div>
-        <div class="about-cards reveal delay-1">
-          <article><span class="card-number">1.40</span><strong>Cum Laude GWA</strong><small>BS Information Technology</small></article>
-          <article><span class="card-number">02</span><strong>Featured systems</strong><small>PyreWall & StudySync</small></article>
-          <article><span class="card-number">UI</span><strong>Design + tech</strong><small>Figma to implementation</small></article>
-          <article><span class="card-number">NCII</span><strong>Technical foundation</strong><small>Computer Systems Servicing</small></article>
+        <div class="coverage-table-wrap reveal">
+          <table class="coverage-table">
+            <caption>Core UX competency coverage across the live prototypes</caption>
+            <thead><tr><th scope="col">Project</th><th scope="col">Research</th><th scope="col">IA + flows</th><th scope="col">UI system</th><th scope="col">Accessibility</th><th scope="col">Testing lens</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">PyreWall</th><td>Operator context</td><td>Dense navigation</td><td>Data dashboard</td><td>Status beyond color</td><td>Alert triage</td></tr>
+              <tr><th scope="row">StudySync</th><td>Student needs</td><td>Task ecosystem</td><td>Responsive workspace</td><td>Focus controls</td><td>Planning tasks</td></tr>
+              <tr><th scope="row">CarePath</th><td>Access barriers</td><td>Booking journey</td><td>Inclusive forms</td><td>WCAG-minded flow</td><td>Appointment success</td></tr>
+              <tr><th scope="row">FinWell</th><td>Trust needs</td><td>Goal planning</td><td>Data storytelling</td><td>Plain-language cues</td><td>Comprehension</td></tr>
+              <tr><th scope="row">Resolve</th><td>Support context</td><td>Service blueprint</td><td>Workflow patterns</td><td>Keyboard-ready board</td><td>Ticket resolution</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="section-shell section" id="skills">
-      <div class="section-heading reveal"><div><p class="eyebrow">Design toolkit</p><h2>What I bring to a UI project.</h2></div><p>A mix of interface design, visual communication, front-end understanding, and practical IT knowledge.</p></div>
-      <div class="skill-grid">
-        <article class="skill-card reveal"><div class="skill-icon">✦</div><h3>UI/UX Design</h3><p>Interface structure, visual hierarchy, dashboards, usability-focused layouts, responsive thinking, and product polish.</p><div><span>Figma</span><span>Canva</span><span>UI/UX Design</span></div></article>
-        <article class="skill-card reveal delay-1"><div class="skill-icon">⌘</div><h3>Interface Development</h3><p>Enough front-end and application knowledge to design with implementation constraints in mind.</p><div><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Python</span></div></article>
-        <article class="skill-card reveal delay-2"><div class="skill-icon">◇</div><h3>Technical Product Thinking</h3><p>Comfort with IT support, networking, systems, cybersecurity concepts, databases, APIs, and technical workflows.</p><div><span>IT Support</span><span>Networks</span><span>Supabase</span><span>APIs</span></div></article>
+    <section class="profile-section section-shell" id="profile" aria-labelledby="profile-title">
+      <div class="profile-statement reveal">
+        <p class="eyebrow">Profile</p>
+        <h2 id="profile-title">A designer who understands what happens <em>behind</em> the interface.</h2>
+        <p>My background spans network support, troubleshooting, software development, cybersecurity, client advising, and operations. That range helps me translate technical constraints into experiences people can actually understand and trust.</p>
       </div>
-      <div class="tools-row reveal"><span>Also comfortable with</span><div><b>Git/GitHub</b><b>SQL</b><b>MySQL</b><b>SQLite</b><b>CapCut</b><b>OpenShot</b></div></div>
+      <div class="profile-notes reveal delay-1">
+        <div><span>Now</span><p>Licensed Financial Advisor at Pru Life UK, balancing needs analysis, client relationships, and accurate documentation.</p></div>
+        <div><span>Previously</span><p>IT Network Support Intern at Concentrix, diagnosing hardware, software, and connectivity issues while keeping operations moving.</p></div>
+        <div><span>Built</span><p>PyreWall and StudySync using Python, PyQt6, SQLite/Supabase, APIs, and implementation-aware interface design.</p></div>
+      </div>
     </section>
 
-    <section class="section-shell section" id="journey">
-      <div class="section-heading reveal"><div><p class="eyebrow">Journey</p><h2>Design backed by a strong technical foundation.</h2></div></div>
-      <div class="journey-grid">
-        <div class="timeline reveal">
-          <article><div class="timeline-year">2026</div><div><span>Professional experience</span><h3>IT Network Support Intern · Concentrix</h3><p>Hands-on troubleshooting, end-user support, system maintenance, network connectivity, and technical documentation.</p></div></article>
-          <article><div class="timeline-year">2022–26</div><div><span>Education</span><h3>BS Information Technology</h3><p>Pamantasan ng Lungsod ng San Pablo · Cum Laude · GWA 1.40</p></div></article>
-          <article><div class="timeline-year">2026</div><div><span>Certification</span><h3>Computer Systems Servicing NC II</h3><p>Marcelino Fule Memorial College · Alaminos, Laguna</p></div></article>
+    <section class="experience-section section-shell" id="experience" aria-labelledby="experience-title">
+      <div class="section-intro reveal"><div><p class="eyebrow">Professional experience</p><h2 id="experience-title">Experience across systems and people.</h2></div><p>Each role strengthened a different part of my design practice: technical diagnosis, client empathy, precision, documentation, and cross-functional collaboration.</p></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-date"><strong>Mar 2026—Now</strong><span>Remote · Philippines</span></div><div><p class="role-type">Client advisory</p><h3>Licensed Financial Advisor <span>Pru Life UK</span></h3><ul><li>Conduct client needs assessments and recommend appropriate financial solutions while building strong relationships.</li><li>Manage documentation, reports, and client records with accuracy and professionalism.</li></ul></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date"><strong>Feb—May 2026</strong><span>Nuvali, Sta. Rosa · Laguna</span></div><div><p class="role-type">IT network support · Internship</p><h3>IT Network Support Intern <span>Concentrix</span></h3><ul><li>Diagnosed and resolved hardware, software, and network issues; documented incidents and resolutions.</li><li>Maintained systems, peripherals, and connectivity through preventive maintenance and regular checks.</li><li>Collaborated with IT personnel to support efficient, uninterrupted daily operations.</li></ul></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date"><strong>Jan—May 2022</strong><span>Dolores · Quezon</span></div><div><p class="role-type">Customer operations</p><h3>Cashier Teller <span>Off-Cockpit Betting Station</span></h3><ul><li>Processed customer transactions accurately, maintained records, and followed operational procedures.</li><li>Delivered attentive service in a fast-paced environment.</li></ul></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date"><strong>Jul 2021—Jan 2022</strong><span>FPIP, Tanauan · Batangas</span></div><div><p class="role-type">Quality operations</p><h3>Inspector / Operator <span>Canon Business Machine Philippines</span></h3><ul><li>Conducted quality inspections, identified defects, and ensured manufacturing-standard compliance.</li><li>Kept accurate inspection records and coordinated with production teams to support efficiency.</li></ul></div></article>
+      </div>
+    </section>
+
+    <section class="toolkit-section" aria-labelledby="toolkit-title">
+      <div class="section-shell toolkit-layout">
+        <div class="toolkit-heading reveal"><p class="eyebrow">Technical toolkit</p><h2 id="toolkit-title">Design fluency backed by technical depth.</h2><p>I can speak with users, designers, developers, and IT teams—and understand the constraints each group brings.</p></div>
+        <div class="toolkit-groups reveal delay-1">
+          <article><h3>Product & design</h3><p>UI/UX Design · Figma · Canva · Responsive Design · Interaction Design · Prototyping · Accessibility · Visual Hierarchy</p></article>
+          <article><h3>Development</h3><p>Python · C++ · HTML5 · CSS3 · JavaScript · SQL · MySQL · SQLite · Supabase · API Integration · Git/GitHub</p></article>
+          <article><h3>IT support & infrastructure</h3><p>Technical/Customer Support · Helpdesk Operations · IT Asset Management · Hardware/Software Troubleshooting · Network Configuration · Windows Administration · Active Directory · User Account Management · Remote Desktop · OS Installation · System Maintenance · Technical Documentation</p></article>
+          <article><h3>Cybersecurity & media</h3><p>Firewall Management · Network Monitoring · Packet Analysis · Traffic Logging · CapCut · OpenShot</p></article>
         </div>
-        <aside class="certificate-card reveal delay-1">
-          <p class="eyebrow">Certificates</p>
-          <h3>Continuous learning, beyond design.</h3>
+      </div>
+    </section>
+
+    <section class="credentials-section section-shell" id="credentials" aria-labelledby="credentials-title">
+      <div class="section-intro reveal"><div><p class="eyebrow">Education + credentials</p><h2 id="credentials-title">Grounded in continuous learning.</h2></div><p>Formal IT training, industry certifications, and product-building experience support a design practice that is both imaginative and realistic.</p></div>
+      <div class="credentials-grid">
+        <div class="education-list reveal">
+          <h3>Education</h3>
+          <article><span>2022—2026</span><div><h4>Bachelor of Science in Information Technology</h4><p>Pamantasan ng Lungsod ng San Pablo · San Pablo City, Laguna</p><strong>Cum Laude · GWA 1.40</strong></div></article>
+          <article><span>May—Jun 2026</span><div><h4>Computer Systems Servicing NC II</h4><p>Marcelino Fule Memorial College · Alaminos, Laguna</p></div></article>
+          <article><span>2019—2021</span><div><h4>Senior High School Graduate</h4><p>Capellan Institute of Technology · San Pablo City, Laguna</p><strong>CSS NC II Qualified</strong></div></article>
+        </div>
+        <div class="certificate-list reveal delay-1">
+          <h3>Certificates</h3>
           <ul>
-            <li>Computer Systems Servicing NC II</li>
-            <li>Certified C++ Practitioner</li>
-            <li>Ethical Hacking and Data Security</li>
-            <li>Certified Cybersecurity Educator Professional</li>
-            <li>Certified Red Teams Operations Management</li>
-            <li>Ascxent Knowledge Resources Inc. (ISO 90012015)</li>
+            <li><span>01</span><p>Computer Systems Servicing NC II</p></li>
+            <li><span>02</span><p>Certified C++ Practitioner</p></li>
+            <li><span>03</span><p>Ethical Hacking and Data Security</p></li>
+            <li><span>04</span><p>Certified Cybersecurity Educator Professional</p></li>
+            <li><span>05</span><p>Certified Red Teams Operations Management</p></li>
+            <li><span>06</span><p>Ascxent Knowledge Resources Inc. · ISO 9001:2015</p></li>
           </ul>
-        </aside>
+        </div>
       </div>
+      <p class="references-note reveal">Professional references are available upon request.</p>
     </section>
 
-    <section class="contact section-shell section" id="contact">
-      <div class="contact-card reveal">
-        <div><p class="eyebrow">Let’s create something thoughtful</p><h2>Have an interface that needs clarity and personality?</h2><p>I’m interested in UI/UX, product interface, dashboard, and design-focused opportunities.</p></div>
-        <div class="contact-actions"><a class="button primary" href="mailto:mecobuendia1@gmail.com">mecobuendia1@gmail.com</a><a class="button secondary" href="https://github.com/Sachibara0516" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a></div>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-shell contact-inner reveal">
+        <p class="eyebrow">Let’s work together</p>
+        <h2 id="contact-title">Have a complex product that needs a clearer experience?</h2>
+        <p>I’m open to UI/UX, product design, interface design, and implementation-aware collaboration opportunities.</p>
+        <div class="contact-actions">
+          <a class="button button-acid" href="mailto:mecobuendia1@gmail.com">mecobuendia1@gmail.com <span aria-hidden="true">↗</span></a>
+          <button class="copy-button" type="button" data-email="mecobuendia1@gmail.com">Copy email</button>
+          <a class="plain-link" href="https://github.com/Sachibara0516" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer section-shell"><span>© <span id="year"></span> Meco E. Buendia</span><span>Designed with softness, structure, and intent.</span></footer>
-
-  <dialog id="caseDialog" class="case-dialog">
-    <div class="case-shell">
-      <button class="case-close" id="caseClose" aria-label="Close case study">×</button>
-      <div id="caseContent"></div>
-    </div>
-  </dialog>
+  <footer class="site-footer section-shell">
+    <p>© <span id="year">2026</span> Meco E. Buendia</p>
+    <p>Designed with intention. Built with HTML, CSS & JavaScript.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
