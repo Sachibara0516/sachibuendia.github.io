@@ -13,12 +13,12 @@ UI/UX design, dashboard design, interaction design, responsive layouts, visual h
 - HTML5
 - CSS3
 - JavaScript
+- Vercel
 - GitHub Pages
 
 ## Live site
-This repository is owned by `Sachibara0516`, so its GitHub Pages project URL is:
-
-`https://sachibara0516.github.io/sachibuendia.github.io/`
+- Production (Vercel): https://sachibuendia.vercel.app/
+- GitHub Pages mirror: https://sachibara0516.github.io/sachibuendia.github.io/
 
 ## Portfolio source
 The profile content was based on Meco Buendia's CV, while intentionally leaving private street-address, phone, and reference-contact details off the public website.
