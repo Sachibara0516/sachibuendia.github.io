@@ -1,13 +1,13 @@
 # Meco E. Buendia — UI/UX & Product Design Portfolio
 
-A responsive, interaction-rich portfolio presenting Meco Buendia’s full professional profile and five live product design prototypes. The site is built with semantic HTML, modern CSS, and accessible vanilla JavaScript.
+A responsive, interaction-rich portfolio presenting Meco Buendia’s full professional profile and five standalone interactive product websites with detailed UX case studies. The site is built with semantic HTML, modern CSS, and accessible vanilla JavaScript.
 
 ## Live portfolio
 
 - **Production (Vercel):** https://sachibuendia.vercel.app/
 - **GitHub Pages mirror:** https://sachibara0516.github.io/sachibuendia.github.io/
 
-## Five live projects
+## Five standalone live websites
 
 1. **PyreWall — cybersecurity command center**  
    https://sachibuendia.vercel.app/projects/pyrewall/  
@@ -29,7 +29,7 @@ A responsive, interaction-rich portfolio presenting Meco Buendia’s full profes
    https://sachibuendia.vercel.app/projects/resolve/  
    Service blueprints, ticket intake, operational workflows, search and filtering, state management, and usability heuristics.
 
-## Portfolio coverage
+Each project is a complete, independently accessible web experience with its own direct URL, interactive interface, responsive states, and UX case-study content. Portfolio cards open these sites in a separate browser tab.\n\n## Portfolio coverage
 
 The portfolio includes the important professional information from Meco’s CV:
 
